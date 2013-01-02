@@ -1,0 +1,14 @@
+Command = "!"cmd *(%d13 Command);
+sp = " ";
+
+cmd = "login" sp username / "logout" / "list" / "create" sp duration sp description/ "bid" sp id sp amount / "end" ;
+
+username = *%d33-126; #all printable ascii chars without space
+
+duration = *(%d48-57);
+
+description = *(%d32-126); #20-255 all printable ascii with space
+
+id = *%d48-57;
+
+amount = *%d48-57["."2%d48-57];
